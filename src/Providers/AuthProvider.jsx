@@ -5,17 +5,21 @@ import auth from '../firebase.init'
 
 const AuthProvider = ({children}) => {
     const [user,setUser]=useState(null)
+    const [loading,setLoading]=useState(true)
     const createUser=(email,password)=>{
+         setLoading(true)
         return createUserWithEmailAndPassword(auth,email,password)
     }
 
     //login
     const signInUser=(email,password)=>{
+         setLoading(true)
         return signInWithEmailAndPassword(auth,email,password)
     }
 
     //signout
     const signoutUser=()=>{
+        setLoading(true)
         return signOut(auth)
     }
     //observer.store the informaiton of user
@@ -25,6 +29,7 @@ const AuthProvider = ({children}) => {
      
             console.log('curent user')
             setUser(currentUser)
+            setLoading(false)
         
         
 
@@ -36,8 +41,9 @@ const AuthProvider = ({children}) => {
 
     //pass value to context
     const authInfo={
-        name:"promi",
+     
         user,
+        loading,
       createUser,
        signInUser,
        signoutUser
