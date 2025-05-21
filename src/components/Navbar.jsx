@@ -12,6 +12,7 @@ const Navbar = () => {
             {
               user && <>
              <li><Link to='/orders'>Orders</Link></li> 
+               <li><Link to='/profile'>Profile</Link></li> 
               </>
             }
     </>
