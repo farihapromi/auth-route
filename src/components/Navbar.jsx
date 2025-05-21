@@ -9,6 +9,11 @@ const Navbar = () => {
      <li><NavLink to='/'>Home</NavLink></li>
          <li><NavLink to='/login'>Login</NavLink></li>
             <li><NavLink to='/signup'>Signup</NavLink></li>
+            {
+              user && <>
+             <li><Link to='/orders'>Orders</Link></li> 
+              </>
+            }
     </>
     const handleSignOut=()=>{
       signoutUser()
